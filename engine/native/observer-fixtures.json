@@ -1,0 +1,4071 @@
+[
+  {
+    "name": "ready",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "OBSERVED",
+          "level": 3,
+          "evidence_ids": [
+            "e"
+          ],
+          "counter_evidence_ids": [],
+          "explanation": "Specific anchor comparison.",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": true,
+      "errors": [],
+      "assessment": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "OBSERVED",
+            "level": 3,
+            "evidence_ids": [
+              "e"
+            ],
+            "counter_evidence_ids": [],
+            "explanation": "Specific anchor comparison.",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    }
+  },
+  {
+    "name": "missing-rubric",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "MISSING_RUBRIC"
+        },
+        {
+          "dimension": "C3",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "MISSING_RUBRIC"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "DATA_INCOMPLETE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+          "limitations": [
+            "MISSING_RUBRIC"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "DATA_INCOMPLETE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+          "limitations": [
+            "MISSING_RUBRIC"
+          ]
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": true,
+      "errors": [],
+      "assessment": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    }
+  },
+  {
+    "name": "silent",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "INSUFFICIENT_EVIDENCE",
+          "reason_code": "NO_VERIFIED_EVIDENCE"
+        },
+        {
+          "dimension": "C3",
+          "required_status": "INSUFFICIENT_EVIDENCE",
+          "reason_code": "NO_VERIFIED_EVIDENCE"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+            "limitations": [
+              "NO_VERIFIED_EVIDENCE"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+            "limitations": [
+              "NO_VERIFIED_EVIDENCE"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+          "limitations": [
+            "NO_VERIFIED_EVIDENCE"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+          "limitations": [
+            "NO_VERIFIED_EVIDENCE"
+          ]
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": true,
+      "errors": [],
+      "assessment": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+            "limitations": [
+              "NO_VERIFIED_EVIDENCE"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+            "limitations": [
+              "NO_VERIFIED_EVIDENCE"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    }
+  },
+  {
+    "name": "no-opportunity",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {
+        "C2": "NONE"
+      },
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {
+          "C2": "NONE"
+        },
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "INSUFFICIENT_OPPORTUNITY",
+          "reason_code": "CONFIRMED_NO_OPPORTUNITY"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_OPPORTUNITY",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师记录确认本次没有适当展示机会，不能视为低能力。",
+            "limitations": [
+              "CONFIRMED_NO_OPPORTUNITY"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_OPPORTUNITY",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师记录确认本次没有适当展示机会，不能视为低能力。",
+          "limitations": [
+            "CONFIRMED_NO_OPPORTUNITY"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": true,
+      "errors": [],
+      "assessment": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_OPPORTUNITY",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师记录确认本次没有适当展示机会，不能视为低能力。",
+            "limitations": [
+              "CONFIRMED_NO_OPPORTUNITY"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    }
+  },
+  {
+    "name": "partial-record",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": false,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": false,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "INCOMPLETE_RECORD"
+        },
+        {
+          "dimension": "C3",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "INCOMPLETE_RECORD"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "讨论记录不完整，不能可靠定级。",
+            "limitations": [
+              "INCOMPLETE_RECORD"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "讨论记录不完整，不能可靠定级。",
+            "limitations": [
+              "INCOMPLETE_RECORD"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "DATA_INCOMPLETE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "讨论记录不完整，不能可靠定级。",
+          "limitations": [
+            "INCOMPLETE_RECORD"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "DATA_INCOMPLETE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "讨论记录不完整，不能可靠定级。",
+          "limitations": [
+            "INCOMPLETE_RECORD"
+          ]
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": true,
+      "errors": [],
+      "assessment": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "讨论记录不完整，不能可靠定级。",
+            "limitations": [
+              "INCOMPLETE_RECORD"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "讨论记录不完整，不能可靠定级。",
+            "limitations": [
+              "INCOMPLETE_RECORD"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    }
+  },
+  {
+    "name": "empty-anchor",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "MISSING_RUBRIC"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "DATA_INCOMPLETE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+          "limitations": [
+            "MISSING_RUBRIC"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": true,
+      "errors": [],
+      "assessment": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    }
+  },
+  {
+    "name": "bad-status",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "MISSING_RUBRIC"
+        },
+        {
+          "dimension": "C3",
+          "required_status": "DATA_INCOMPLETE",
+          "reason_code": "MISSING_RUBRIC"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "DATA_INCOMPLETE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+            "limitations": [
+              "MISSING_RUBRIC"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_OPPORTUNITY",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+          "limitations": [
+            "MISSING_RUBRIC"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "DATA_INCOMPLETE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "此维度四档量表原文缺失或不完整，不能定级。",
+          "limitations": [
+            "MISSING_RUBRIC"
+          ]
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "STATUS_C2"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "missing-dimension",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "SIX_DIMENSIONS_REQUIRED"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "fake-evidence",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "OBSERVED",
+          "level": 3,
+          "evidence_ids": [
+            "fake"
+          ],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "EVIDENCE_C2"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "foreign-evidence",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "other",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "other",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": "INSUFFICIENT_EVIDENCE",
+          "reason_code": "NO_VERIFIED_EVIDENCE"
+        },
+        {
+          "dimension": "C3",
+          "required_status": "INSUFFICIENT_EVIDENCE",
+          "reason_code": "NO_VERIFIED_EVIDENCE"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+            "limitations": [
+              "NO_VERIFIED_EVIDENCE"
+            ]
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+            "limitations": [
+              "NO_VERIFIED_EVIDENCE"
+            ]
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "OBSERVED",
+          "level": 3,
+          "evidence_ids": [
+            "e"
+          ],
+          "counter_evidence_ids": [],
+          "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+          "limitations": [
+            "NO_VERIFIED_EVIDENCE"
+          ]
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。",
+          "limitations": [
+            "NO_VERIFIED_EVIDENCE"
+          ]
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "EVIDENCE_C2",
+        "STATUS_C2"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "boolean-level",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "OBSERVED",
+          "level": true,
+          "evidence_ids": [
+            "e"
+          ],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "LEVEL_C2"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "aggregate",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": [],
+      "total_score": 100
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "TOP_LEVEL_FIELDS"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "metadata",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {},
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {},
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "stale",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "METADATA"
+      ],
+      "assessment": null
+    }
+  },
+  {
+    "name": "confirmed-opportunity-cannot-be-absent",
+    "context": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "selected_dimensions": [
+        "C2",
+        "C3"
+      ],
+      "rubric": {
+        "dimensions": [
+          {
+            "dimension": "C2",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          },
+          {
+            "dimension": "C3",
+            "levels": {
+              "1": "anchor 1",
+              "2": "anchor 2",
+              "3": "anchor 3",
+              "4": "anchor 4"
+            }
+          }
+        ]
+      },
+      "verified_evidence": [
+        {
+          "evidence_id": "e",
+          "participant_id": "p",
+          "quote": "actual words",
+          "validation": "VALID"
+        }
+      ],
+      "knowledge": [],
+      "events": [],
+      "data_complete": true,
+      "opportunity": {
+        "C2": "PRESENT"
+      },
+      "limitations": []
+    },
+    "prepared": {
+      "context": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "events": [],
+        "selected_dimensions": [
+          "C2",
+          "C3"
+        ],
+        "rubric": {
+          "dimensions": [
+            {
+              "dimension": "C2",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            },
+            {
+              "dimension": "C3",
+              "levels": {
+                "1": "anchor 1",
+                "2": "anchor 2",
+                "3": "anchor 3",
+                "4": "anchor 4"
+              }
+            }
+          ]
+        },
+        "knowledge": [],
+        "verified_evidence": [
+          {
+            "evidence_id": "e",
+            "participant_id": "p",
+            "quote": "actual words",
+            "validation": "VALID"
+          }
+        ],
+        "data_complete": true,
+        "opportunity": {
+          "C2": "PRESENT"
+        },
+        "limitations": []
+      },
+      "dimension_constraints": [
+        {
+          "dimension": "C1",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C2",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C3",
+          "required_status": null,
+          "reason_code": "MODEL_JUDGMENT"
+        },
+        {
+          "dimension": "C4",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C5",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        },
+        {
+          "dimension": "C6",
+          "required_status": "NOT_SELECTED",
+          "reason_code": "NOT_SELECTED"
+        }
+      ],
+      "template": {
+        "snapshot_id": "s",
+        "frozen_log_id": "f",
+        "participant_id": "p",
+        "input_hash": "h",
+        "rubric_version": "md",
+        "dimensions": [
+          {
+            "dimension": "C1",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C2",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C3",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+            "limitations": []
+          },
+          {
+            "dimension": "C4",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C5",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          },
+          {
+            "dimension": "C6",
+            "status": "NOT_SELECTED",
+            "level": null,
+            "evidence_ids": [],
+            "counter_evidence_ids": [],
+            "explanation": "教师本次未选择此维度。",
+            "limitations": []
+          }
+        ],
+        "knowledge_observations": [],
+        "limitations": []
+      }
+    },
+    "value": {
+      "snapshot_id": "s",
+      "frozen_log_id": "f",
+      "participant_id": "p",
+      "input_hash": "h",
+      "rubric_version": "md",
+      "dimensions": [
+        {
+          "dimension": "C1",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C2",
+          "status": "INSUFFICIENT_OPPORTUNITY",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "Specific anchor comparison.",
+          "limitations": []
+        },
+        {
+          "dimension": "C3",
+          "status": "INSUFFICIENT_EVIDENCE",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。",
+          "limitations": []
+        },
+        {
+          "dimension": "C4",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C5",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        },
+        {
+          "dimension": "C6",
+          "status": "NOT_SELECTED",
+          "level": null,
+          "evidence_ids": [],
+          "counter_evidence_ids": [],
+          "explanation": "教师本次未选择此维度。",
+          "limitations": []
+        }
+      ],
+      "knowledge_observations": [],
+      "limitations": []
+    },
+    "expected": {
+      "ok": false,
+      "errors": [
+        "STATUS_C2"
+      ],
+      "assessment": null
+    }
+  }
+]
