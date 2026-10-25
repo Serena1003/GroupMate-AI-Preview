@@ -8,7 +8,7 @@ Password-free, interactive public preview for teacher review.
 
 Open the page without a password. Explore the completed synthetic classroom, or select **Start a fresh guided demo**.
 
-- **Teacher studio:** edit goals, case, roles, questions, selected dimensions and classroom settings; confirm and publish the activity.
+- **Teacher studio:** select teaching materials through four source routes, use synthetic examples, add local files or paste excerpts, apply selected references/text to the draft, then edit goals, roles, questions and selected dimensions; confirm and publish the activity.
 - **Student experience:** save a goal and strategy, contribute, invite a clearly labelled preset role, submit a proposal and record confirmation, reflect, view published feedback and save a next action.
 - **Class overview / Group insights / Evidence review:** inspect original source text and separate preset assessment baseline from teacher adoption.
 - **Teaching feedback:** edit personal/group/six-section teacher reports, save a new draft, then publish separately. Previous versions remain in publication history.
@@ -38,3 +38,9 @@ The purple classroom/dashboard design was informed by the collaborator's public 
 https://github.com/Sivan-Bu/GroupMate-AI_Dashboard
 
 This repository is the public demonstration preview, separate from the collaborator's repository. No license grant beyond existing source rights is implied; review permissions before reuse or distribution.
+
+## Teaching-material selection
+
+In **Teacher studio → Select teaching materials**, choose the case source route (existing textbook case, teacher-provided material, new textbook-based case, or web reference). Add a built-in synthetic example, select local files, or paste an authorised excerpt with a source reference. Select up to five materials and explicitly apply their references or original text to the activity draft. Changes reset the nine confirmation items.
+
+TXT, MD and CSV contents are read locally and persisted as text in this browser. PDF, Word and PowerPoint files can be selected and labelled, but their contents are **not automatically extracted** in this static preview: paste the required excerpt. PDF files may be opened locally for viewing while their file bytes remain available in the current session; refresh retains metadata, not the original binary. The actual engine supports PDF selected-page extraction and DOCX extraction; PowerPoint extraction is not claimed. No selected teaching file is uploaded to GitHub, XIPU or any server.
