@@ -1,0 +1,75 @@
+/* Shared Dashboard shell with classroom-specific layouts. */
+.classroom-app{color:var(--ink);font-size:14px;line-height:1.65}
+.classroom-app .shell{min-height:100vh}
+.classroom-app .topbar{position:sticky;top:16px;z-index:8;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--ink)}
+.classroom-app .topbar a{color:inherit;text-decoration:none}
+.classroom-app main{max-width:1500px;margin:0 auto;padding:36px 40px}
+.classroom-app h1{font-size:40px;line-height:1.2}
+.classroom-app h2{font-size:20px;line-height:1.4}
+.classroom-app h3{font-size:15px;line-height:1.5}
+.classroom-app p{color:var(--muted)}
+.classroom-app article,.classroom-app details,.classroom-app #goal-section,.classroom-app #teacher-controls,.classroom-app .metric-row>div{background:linear-gradient(135deg,#ffffffdd,#fcf8ffbd);border:1px solid #fff;border-radius:24px;padding:24px;box-shadow:0 12px 36px #8b6c9b09,inset 0 1px 1px #fff;backdrop-filter:blur(16px)}
+.classroom-app article{margin-bottom:24px}
+.classroom-app details{margin-bottom:18px}
+.classroom-app details details{border:1px solid var(--line);box-shadow:none;border-radius:15px;background:#ffffff6b;backdrop-filter:none;padding:16px}
+.classroom-app summary{color:var(--ink);font-size:15px}
+.classroom-app button{background:linear-gradient(140deg,#80649f,#695184 58%,#604b7d);color:#fff;border:1px solid transparent;border-radius:12px;padding:11px 16px;font-size:13px;font-weight:550;line-height:1.4;box-shadow:0 3px 9px #76579512;white-space:normal}
+.classroom-app button.secondary{color:#6c5483;background:#ffffffc9;border-color:#e6ddec;box-shadow:none}
+.classroom-app button:disabled{opacity:.45;cursor:default}
+.classroom-app button:hover:enabled{filter:brightness(1.04)}
+.classroom-app .button{font-size:11px;padding:10px 13px}
+.classroom-app input,.classroom-app textarea,.classroom-app select{width:100%;background:#ffffffa8;color:var(--ink);border:1px solid #e5ddec;border-radius:12px;font:inherit;padding:11px 13px;box-shadow:inset 0 1px 3px #75618704;max-width:100%}
+.classroom-app input:focus,.classroom-app textarea:focus,.classroom-app select:focus{outline:2px solid #a58abc;outline-offset:2px}
+.classroom-app input[type=checkbox]{width:17px;height:17px;accent-color:#80649f;flex-shrink:0}
+.classroom-app input[type=file]{font-size:12px}
+.classroom-app label{font-size:13px;color:var(--ink)}
+.classroom-app .scope-option{display:inline-flex;align-items:center;gap:9px}
+.classroom-app .scope-option input{width:17px}
+.classroom-app #entry>h1{max-width:800px;margin:20px 0}
+.classroom-app #entry>p{margin-bottom:30px;max-width:800px;font-size:15px}
+.classroom-app .columns{gap:22px;align-items:start}
+.classroom-app .columns>section{min-width:0}
+.classroom-app .studio-nav,.classroom-app .classroom-nav{display:flex;flex-wrap:wrap;gap:8px;background:#ffffff6b;border:1px solid #fff;border-radius:18px;padding:12px;margin:22px 0}
+.classroom-app .studio-nav button,.classroom-app .classroom-nav a{background:#ffffffb3;border:1px solid #e6ddec;color:#6e5782;border-radius:11px;padding:9px 12px;font-size:12px;text-decoration:none;margin:0}
+.classroom-app .studio-nav button:hover,.classroom-app .classroom-nav a:hover{background:#f0e8f7}
+.classroom-app .start-actions{margin:18px 0;gap:8px}
+.classroom-app .metric-row{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.classroom-app .metric-row strong{color:#755b8e;font-size:32px}
+.classroom-app .metric-row small{color:var(--muted)}
+.classroom-app .progress-banner{border:1px solid #e7dcec;border-radius:16px;background:#f3ebf8;color:#715685;font-size:13px}
+.classroom-app .callout,.classroom-app .notice{display:block;background:#f7f1fa;border:1px solid #e9dfef;border-left:3px solid #aa8abc;border-radius:12px;padding:14px;font-size:12px;color:#796388;line-height:1.8}
+.classroom-app .node{background:transparent;border:0;margin-bottom:18px}
+.classroom-app .node>.design-step{border-radius:24px;padding:22px 24px}
+.classroom-app .design-step>summary{font-size:17px}
+.classroom-app .form-group>h3{color:#725a85;border-color:#e9dfed}
+.classroom-app .form-group>label>input:not([type=checkbox]),.classroom-app .form-group>label>textarea{background:#ffffffb3}
+.classroom-app .structured-fields fieldset{border-color:#e6ddec}
+.classroom-app .source-card,.classroom-app .library-row,.classroom-app .room-row{border-color:#e9e0ee}
+.classroom-app #activity-preview{border:1px solid #d9c7e5}
+.classroom-app #teacher .actions{background:#fbf8ffed;border:1px solid #e8dfed;border-radius:17px;backdrop-filter:blur(20px);box-shadow:0 8px 25px #66507812;bottom:16px;z-index:5}
+.classroom-app #teacher-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:12px}
+.classroom-app #teacher-controls #invite{flex-basis:100%;font-weight:600;color:#725a86}
+.classroom-app #clock{font-size:30px;color:#80649f;white-space:nowrap}
+.classroom-app #room-title{font-size:32px;overflow-wrap:anywhere}
+.classroom-app #messages{max-height:550px;min-height:200px;padding:5px 2px}
+.classroom-app .message{border:1px solid #e9e0ef;border-radius:16px;background:#ffffffa1;padding:15px 17px;margin-bottom:12px}
+.classroom-app .message small{font-size:11px;color:#8b7399}
+.classroom-app .message p{color:var(--ink);margin:8px 0 0;font-size:14px;line-height:1.8}
+.classroom-app .message:target{background:#f0e4fa;border-color:#b69bca}
+.classroom-app pre{background:#f7f2fa;border:1px solid #ede4f2;border-radius:14px;font-size:13px;color:#63516f;line-height:1.8}
+.classroom-app #notice{z-index:9;background:#695282;color:#fff;border-radius:15px;box-shadow:0 8px 24px #60497d22}
+.classroom-app #review-workspace{border-top:1px solid #dfcfe9}
+.classroom-app .dimension-card{background:#faf5ff;border:1px solid #e5daed;border-radius:15px}
+.classroom-app .statistics th{background:#f0e7f7}
+.classroom-app .statistics th,.classroom-app .statistics td{border-color:#e9dfef}
+.classroom-app #next-action-section{border-color:#e6ddec}
+.classroom-app .page-footer{padding-top:20px}
+.classroom-app .sidebar .nav-link{font-size:12px}
+.classroom-app .sidebar a{color:inherit;text-decoration:none}
+.classroom-app .sidebar .nav-link.active{background:#e9ddf4b3;color:#6d5087}
+@media(max-width:1100px){.classroom-app .discussion{grid-template-columns:1fr}.classroom-app .metric-row{grid-template-columns:repeat(2,minmax(0,1fr))}.classroom-app main{padding:28px}.classroom-app .top-actions{flex-wrap:wrap;justify-content:flex-end}}
+@media(max-width:700px){.classroom-app main{padding:22px 16px 110px}.classroom-app .columns{grid-template-columns:1fr}.classroom-app h1,.classroom-app #room-title{font-size:30px}.classroom-app .topbar{top:8px;gap:8px;padding:12px}.classroom-app .top-actions .demo-badge{display:none}.classroom-app .top-actions .button{font-size:9px;padding:8px}.classroom-app article,.classroom-app details,.classroom-app #goal-section{padding:19px;border-radius:22px}.classroom-app #teacher .actions{position:static}.classroom-app .sidebar .nav-link{font-size:10px;padding:8px}.classroom-app .classroom-nav{gap:6px}.classroom-app .classroom-nav a{font-size:11px}.classroom-app .title{align-items:flex-start}.classroom-app #clock{font-size:23px}.classroom-app .page-footer{margin-bottom:90px}}
+@media(prefers-reduced-motion:reduce){.classroom-app html{scroll-behavior:auto}}
+@media(max-width:700px){.classroom-app .sidebar{padding:9px 10px;min-height:0}.classroom-app .sidebar nav{display:flex;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:6px}.classroom-app .sidebar .nav-link{flex:0 0 auto;white-space:nowrap;font-size:11px}.classroom-app .topbar .breadcrumb{min-width:0;line-height:1.4;font-size:10px}.classroom-app .topbar .breadcrumb strong{display:none}.classroom-app .topbar .breadcrumb span{display:none}.classroom-app .topbar .top-actions{flex-wrap:nowrap;gap:6px}.classroom-app .topbar{height:auto;min-height:54px}.classroom-app .sidebar .profile,.classroom-app .sidebar .workspace,.classroom-app .sidebar .brand,.classroom-app .sidebar .sidebar-note,.classroom-app .sidebar .nav-caption{display:none}}
+html{scroll-padding-top:112px}
+@media(max-height:820px) and (min-width:701px){.classroom-app .sidebar .sidebar-note{display:none}.classroom-app .sidebar .profile{margin-top:auto}.classroom-app .sidebar .nav-link{padding-top:10px;padding-bottom:10px}}
