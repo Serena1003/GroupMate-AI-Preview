@@ -24,7 +24,7 @@ Changes are stored only in this browser's localStorage. Same-origin tabs in one 
 
 `index.html`, `preview.css` and `preview.js` contain the complete static preview source.
 
-`groupmate-engine-source.zip` contains the fixed local Python engine source snapshot, supporting UI, prompts, core tests and selected documentation. It excludes `.env`, classroom databases, browser sessions, private evidence, supplied books/course PDFs and Git history. Extract it locally, set your own `GROUPMATE_OWNER_SECRET`, then run:
+`engine/` contains the browsable Python engine, original classroom UI, workflow prompts, core tests and selected documentation. `groupmate-engine-source.zip` also provides the same fixed local source snapshot as one download. It excludes `.env`, classroom databases, browser sessions, private evidence, supplied books/course PDFs and Git history. Extract it locally, set your own `GROUPMATE_OWNER_SECRET`, then run:
 
 ```sh
 python3 -m groupmate.server --port 8765
