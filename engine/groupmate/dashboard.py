@@ -5,6 +5,7 @@ from .feedback import FeedbackService
 from .review import ReviewWorkspace
 from .class_reports import ClassReports
 from .assessment_reviews import adopted
+from .outcomes import group_outcome
 
 
 class TeacherDashboard:
@@ -93,12 +94,12 @@ class TeacherDashboard:
                     if r['kind']!='CLASS' or sorted(app._get(r['id'])['room_ids'])==sorted(s['room_ids']):reports[r['id']]=r
             for e in evidence:
                 a=active.get(e['participant_id'])
-                e['dimensions']=[d['dimension'] for d in a['dimensions'] if e['id'] in d['evidence_ids']+d['counter_evidence_ids']] if a else []
+                e['dimensions']=[d['dimension'] for d in a['dimensions'] if d['dimension'] not in a.get('excluded_dimensions',[]) and e['id'] in d['evidence_ids']+d['counter_evidence_ids']] if a else []
             ended=[r['id'] for r in rooms if r['state']=='ENDED']
             cx=self.classes.context(token,ended) if ended else {'statistics':[],'strata':[],'limitations':[]}
             dims=[];member_count=sum(len(r['members']) for r in rooms)
             for dim in packet['assessment']['selected']:
-                details=[next(d for d in a['dimensions'] if d['dimension']==dim) for a in active.values()]
+                details=[next(d for d in a['dimensions'] if d['dimension']==dim) for a in active.values() if dim not in a.get('excluded_dimensions',[])]
                 dims.append({'dimension':dim,'eligible':member_count,'observed':sum(d['status']=='OBSERVED' for d in details),
                     'levels':{str(n):sum(d['status']=='OBSERVED' and d['level']==n for d in details) for n in range(1,5)},
                     'not_observed_by_reason':{k:sum(d['status']==k for d in details) for k in ['INSUFFICIENT_EVIDENCE','INSUFFICIENT_OPPORTUNITY']},
@@ -107,7 +108,7 @@ class TeacherDashboard:
             for tag in packet['assessment'].get('knowledge',[]):
                 rows=[v for v in cx['statistics'] if v['metric']=='knowledge_supported_groups' and v['tag']==tag]
                 knowledge.append({'concept_id':'concept-'+digest(tag)[:20],'label':tag,
-                    'metric_definition':'至少一名成员有支持性证据的小组数；可与覆盖缺失重叠，不代表全组掌握。',
+                    'metric_definition':'Number of groups with supporting evidence from at least one member. This may overlap with incomplete coverage and does not establish mastery by all members.',
                     'numerator':sum(v['numerator'] for v in rows),'denominator':len(ended),
                     'coverage_missing_groups':sum(v['missing_count'] for v in rows),
                     'coverage_partial_groups':sum(v['partial_count'] for v in rows)})
@@ -124,5 +125,6 @@ class TeacherDashboard:
                     'ended_groups':len(ended),'joined_students':member_count,'registered_students':None,'assessments_ready':len(active),
                     'groups_with_discussion':sum(g['student_message_count']>0 for g in groups)},
                 'groups':groups,'dimensions':dims,'knowledge':knowledge,'strata':cx['strata'],'statistics':cx['statistics'],
+                'outcomes':[group_outcome(app,r) for r in rooms],
                 'reports':list(reports.values()),'evidence':evidence,'highlight':highlight,
-                'limitations':cx['limitations']+['维度总计仅说明当前场次覆盖；跨组表现比较请查看条件分层，不计算均值或排名。']}
+                'limitations':cx['limitations']+['Dimension totals describe session coverage only. Use condition strata for comparisons across groups. No averages or rankings are calculated.']}

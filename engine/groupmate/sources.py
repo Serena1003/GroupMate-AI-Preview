@@ -24,8 +24,9 @@ class Sources:
     def list(self,token):
         with self.app.lock:
             actor=self.app._teacher(token)
-            return [{k:s[k] for k in ['id','filename','status','sha256','at','page_range','character_count']} for s in self.app._all('source') if s['owner']==actor['actor_id']]
-    def upload(self,token,filename,encoded,first=1,last=1):
+            return [{k:s.get(k,'CASE_MATERIAL' if k=='purpose' else None) for k in ['id','filename','status','sha256','at','page_range','character_count','purpose']} for s in self.app._all('source') if s['owner']==actor['actor_id']]
+    def upload(self,token,filename,encoded,first=1,last=1,purpose='CASE_MATERIAL'):
+        if purpose not in ['CASE_MATERIAL','COURSE_CONTEXT']:raise DomainError('SOURCE_PURPOSE_INVALID')
         with self.app.lock:actor=self.app._teacher(token)
         if not isinstance(filename,str) or len(filename)>240 or not isinstance(encoded,str) or len(encoded)>MAX_BYTES*4//3+8:raise DomainError('SOURCE_SIZE_OR_NAME')
         try:raw=base64.b64decode(encoded,validate=True)
@@ -58,7 +59,7 @@ class Sources:
         except (UnicodeError,zipfile.BadZipFile,KeyError,ET.ParseError,subprocess.TimeoutExpired,OSError):raise DomainError('SOURCE_PARSE_FAILED')
         if not any(text.strip() for _,text in pages):raise DomainError('SOURCE_NO_EXTRACTABLE_TEXT')
         if sum(len(t) for _,t in pages)>160000:raise DomainError('SOURCE_TEXT_TOO_LARGE_SELECT_FEWER_PAGES')
-        value={'id':identifier('source'),'type':'SOURCE_DOCUMENT','owner':actor['actor_id'],'filename':Path(filename).name,'sha256':hashlib.sha256(raw).hexdigest(),'status':'TEXT_EXTRACTED_NOT_CASE_VERIFIED','page_range':[first,last] if suffix=='.pdf' else None,'at':self.app.clock(),'character_count':sum(len(t) for _,t in pages),'spans':[{'span_id':identifier('span'),'pdf_page':page,'text':text} for page,text in pages]}
+        value={'id':identifier('source'),'type':'SOURCE_DOCUMENT','purpose':purpose,'owner':actor['actor_id'],'filename':Path(filename).name,'sha256':hashlib.sha256(raw).hexdigest(),'status':'TEXT_EXTRACTED_NOT_CASE_VERIFIED','page_range':[first,last] if suffix=='.pdf' else None,'at':self.app.clock(),'character_count':sum(len(t) for _,t in pages),'spans':[{'span_id':identifier('span'),'pdf_page':page,'text':text} for page,text in pages]}
         with self.app.transaction():self.app._put(value,'source')
         return value
     def search(self,token,query):
@@ -75,6 +76,6 @@ class Sources:
                 if urllib.parse.urlparse(link).scheme not in ['http','https']:continue
                 items.append({'title':node.findtext('title',''),'url':link,'snippet':node.findtext('description',''),'status':'SEARCH_SNIPPET_NOT_FULLTEXT_VERIFIED'})
             if not items:raise DomainError('SEARCH_NO_RESULTS')
-            return {'query':query,'items':items,'retrieved_at':self.app.clock(),'limitations':['仅搜索摘要；尚未读取或核验案例全文。请选择来源并上传/粘贴合法可用材料。']}
+            return {'query':query,'items':items,'retrieved_at':self.app.clock(),'limitations':['Search snippets only; the full case has not been read or verified. Select a source and upload or paste material you may use.']}
         except DomainError:raise
         except Exception:raise DomainError('SEARCH_UNAVAILABLE_USE_LINKS_OR_UPLOAD')

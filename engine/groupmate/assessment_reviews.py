@@ -10,13 +10,13 @@ def adopted(app, baseline):
     review=reviews[-1]
     return {**copy.deepcopy(baseline),'id':review['id'],'ai_baseline_id':baseline['id'],
             'dimensions':copy.deepcopy(review['dimensions']),'assessment_source':'TEACHER_ADOPTED',
-            'teacher_note':review['note'],'reviewed_at':review['created_at']}
+            'teacher_note':review['note'],'excluded_dimensions':review.get('excluded_dimensions',[]),'reviewed_at':review['created_at']}
 
 
 class AssessmentReviews:
     def __init__(self,app):self.app=app
 
-    def save(self,token,assessment_id,expected_adopted_id,dimensions,note):
+    def save(self,token,assessment_id,expected_adopted_id,dimensions,note,excluded_dimensions=None):
         from .feedback import FeedbackService
         app=self.app
         with app.transaction():
@@ -28,9 +28,11 @@ class AssessmentReviews:
             checked=validate_candidate(context,payload)
             if not checked['ok']:raise DomainError('REVIEW_RULES_REJECTED:'+','.join(checked['errors']))
             if not isinstance(note,str) or not note.strip() or len(note)>2000:raise DomainError('REVIEW_NOTE_REQUIRED')
+            excluded_dimensions=excluded_dimensions or []
+            if not isinstance(excluded_dimensions,list) or any(d not in ['C1','C2','C3','C4','C5','C6'] for d in excluded_dimensions):raise DomainError('INVALID_DIMENSION')
             prior=[r for r in app._all('assessment-review') if r['ai_baseline_id']==assessment_id]
             record={'id':identifier('assessment-review'),'owner':room['owner'],'room_id':room['id'],
                     'participant_id':baseline['participant_id'],'ai_baseline_id':assessment_id,
                     'previous_adopted_id':expected_adopted_id,'version':len(prior)+1,'input_hash':context['input_hash'],
-                    'dimensions':copy.deepcopy(dimensions),'note':note.strip(),'created_at':app.clock(),'status':'ADOPTED'}
+                    'dimensions':copy.deepcopy(dimensions),'excluded_dimensions':sorted(set(excluded_dimensions)),'note':note.strip(),'created_at':app.clock(),'status':'ADOPTED'}
             app._put(record,'assessment-review');return record

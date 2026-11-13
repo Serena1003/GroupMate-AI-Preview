@@ -53,7 +53,7 @@ class RoleOrchestrator:
         safe['allowed_help']=runtime.get('help_policy',safe['allowed_help'])
         if runtime.get('prompt_intensity')=='无额外提示':safe['allowed_help']='只回应角色顾虑和学生询问；不给概念解释、分析步骤或答案线索。'
         try:
-            response=self.client.run(safe,digest(room_id+actor['actor_id'])[:20]); value=response['value']
+            response=self.client.run({**safe,'output_language':'English','language_instruction':'Reply in English; preserve quoted source text and role authority.'},digest(room_id+actor['actor_id'])[:20]); value=response['value']
             if any(value.get(k)!=safe[k] for k in ['room_id','snapshot_id','epoch','context_revision','public_fact_version']): raise XipuError('MODEL_VERSION_INVALID')
             if value.get('role_id')!=role_id or type(value.get('should_speak')) is not bool: raise XipuError('MODEL_ROLE_INVALID')
             if not isinstance(value.get('responding_to_ids'),list) or not set(value['responding_to_ids']).issubset(set(responding)): raise XipuError('MODEL_REPLY_TARGET_INVALID')

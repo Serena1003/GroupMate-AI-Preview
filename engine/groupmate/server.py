@@ -3,6 +3,7 @@ import argparse
 import hmac
 import json
 import os
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -21,8 +22,9 @@ from .assessment_reviews import AssessmentReviews
 STATIC=Path(__file__).resolve().parent.parent/'static'
 
 
-def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,workflow_client=None):
+def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,workflow_client=None,teacher_password=None):
     teacher=app.bootstrap_teacher(owner_secret)
+    login_password=owner_secret if teacher_password is None else teacher_password
     roles=RoleOrchestrator(app,teacher,role_client or workflow_client)
     review=ReviewWorkspace(app)
     sources=Sources(app);preparation=Preparation(app);learning=Learning(app);manual_roles=ManualRoles(app);operations=Operations(app)
@@ -42,7 +44,7 @@ def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,wor
                 parsed=urlparse(self.path); path=parsed.path
                 if not path.startswith('/api/'):
                     if post: raise DomainError('METHOD_NOT_ALLOWED',status=405)
-                    if path not in ['/','/app.js','/studio.js','/style.css','/manual.html','/teacher','/dashboard.css','/dashboard.js','/engine-adapter.js','/classroom-theme.css','/demo-guide','/demo-flow.png','/demo-guide.css']: raise DomainError('NOT_FOUND',status=404)
+                    if path not in ['/','/app.js','/outcomes.js','/simple-classroom.css','/english.js','/studio.js','/style.css','/manual.html','/teacher','/dashboard.css','/dashboard.js','/engine-adapter.js','/classroom-theme.css','/demo-guide','/demo-flow.png','/demo-guide.css','/plain-theme.css','/feedback-batch.js','/ibss-logo.png']: raise DomainError('NOT_FOUND',status=404)
                     f=STATIC/('demo-guide.html' if path=='/demo-guide' else 'index.html' if path=='/' else 'dashboard.html' if path=='/teacher' else path[1:])
                     content=f.read_bytes()
                     self.send_response(200); self.send_header('Content-Type',{'html':'text/html; charset=utf-8','js':'text/javascript; charset=utf-8','css':'text/css; charset=utf-8','png':'image/png'}[f.suffix[1:]])
@@ -62,7 +64,7 @@ def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,wor
                     raise DomainError('ORIGIN_REJECTED',status=403)
                 token=self.headers.get('Authorization','').removeprefix('Bearer ')
                 if path=='/api/login' and post:
-                    if not hmac.compare_digest(str(d.get('secret','')),owner_secret): raise DomainError('UNAUTHORIZED',status=401)
+                    if not hmac.compare_digest(str(d.get('secret','')),login_password): raise DomainError('UNAUTHORIZED',status=401)
                     value={'token':teacher,'role':'TEACHER'}
                 elif path=='/api/join-info' and not post:
                     with app.lock:
@@ -79,14 +81,14 @@ def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,wor
                     elif path.startswith('/api/v1/teacher/groups/') and not post:value=dashboard.group(token,path.split('/')[-1])
                     elif path.startswith('/api/v1/teacher/evidence/') and path.endswith('/context') and not post:value=dashboard.evidence_context(token,path.split('/')[-2])
                     elif path.startswith('/api/v1/teacher/reports/') and not post:value=dashboard.report(token,path.split('/')[-1])
-                    elif path=='/api/v1/teacher/assessment-reviews' and post:value=assessment_reviews.save(token,d['assessment_id'],d['expected_adopted_id'],d['dimensions'],d['note'])
+                    elif path=='/api/v1/teacher/assessment-reviews' and post:value=assessment_reviews.save(token,d['assessment_id'],d['expected_adopted_id'],d['dimensions'],d['note'],d.get('excluded_dimensions'))
                     elif path=='/api/sample' and not post:
                         with app.transaction(): app._teacher(token)
                         value=json.loads((Path(__file__).parent/'sample.json').read_text())
                     elif path=='/api/studio' and not post: value=preparation.library(token)
                     elif path=='/api/sources' and not post: value=sources.list(token)
                     elif path=='/api/source' and not post: value=sources.get(token,parse_qs(parsed.query)['source_id'][0])
-                    elif path=='/api/sources/upload' and post: value=sources.upload(token,d['filename'],d['content'],d.get('first',1),d.get('last',1))
+                    elif path=='/api/sources/upload' and post: value=sources.upload(token,d['filename'],d['content'],d.get('first',1),d.get('last',1),d.get('purpose','CASE_MATERIAL'))
                     elif path=='/api/sources/search' and post: value=sources.search(token,d['query'])
                     elif path=='/api/preparation/task' and post: value=preparation.task(token,d['draft_id'],d['stage'],d['fields'],d.get('source_ids',[]),d.get('requirements',{}))
                     elif path=='/api/automation/status' and not post:
@@ -107,12 +109,16 @@ def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,wor
                                 self.send_json(200,task['execution']['result']);return
                             if task.get('execution',{}).get('status') in ['RUNNING','UNCERTAIN']: raise DomainError('EXECUTION_PENDING_REVIEW',status=409)
                             task['execution']={'status':'RUNNING'};app._put(task,category=='preparation' and 'prep-task' or category=='review' and 'review-task' or 'manual-role')
+                        response=None;execution_started=time.monotonic()
                         try:
-                            response=client.run(task['input'],'gm-web')
+                            response=client.run({**task['input'],'output_language':'English','language_instruction':'Write all newly authored narrative in English. Preserve verbatim source quotes, identifiers, enum values, adopted assessments and evidence references.'},'gm-web')
                             result=(preparation if category=='preparation' else review if category=='review' else manual_roles).import_result(token,task['id'],response['value'])
-                        except Exception:
+                        except Exception as error:
+                            error_code=str(error) if isinstance(error,XipuError) else error.code if isinstance(error,DomainError) else 'INTERNAL_ERROR'
                             with app.transaction():
-                                task=app._get(task['id']);task['execution']={'status':'UNCERTAIN'};app._put(task,category=='preparation' and 'prep-task' or category=='review' and 'review-task' or 'manual-role')
+                                task=app._get(task['id']);task['execution']={'status':'UNCERTAIN','error':error_code,'elapsed_seconds':round(time.monotonic()-execution_started,2),'run_id':response.get('run_id') if response else None};
+                                if response:task['execution']['unvalidated_output']=response.get('value')
+                                app._put(task,category=='preparation' and 'prep-task' or category=='review' and 'review-task' or 'manual-role')
                             raise
                         with app.transaction():
                             task=app._get(task['id']);result['provenance']='XIPU_OFFICIAL_API_VALIDATED_OUTPUT'
@@ -144,7 +150,7 @@ def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,wor
                     elif path=='/api/rooms' and post: value=app.create_room(token,d['snapshot_id'],d['name'])
                     elif path=='/api/rooms' and not post: value=review.rooms(token)
                     elif path=='/api/review' and not post: value=review.dashboard(token,parse_qs(parsed.query)['room_id'][0])
-                    elif path=='/api/review/task' and post: value=review.create_task(token,d['room_id'],d['kind'],d.get('participant_id'),d.get('room_ids'))
+                    elif path=='/api/review/task' and post: value=review.create_task(token,d['room_id'],d['kind'],d.get('participant_id'),d.get('room_ids'),d.get('require_teacher_review',False))
                     elif path=='/api/review/task' and not post: value=review.get_task(token,parse_qs(parsed.query)['task_id'][0])
                     elif path=='/api/review/import' and post: value=review.import_result(token,d['task_id'],d['output'])
                     elif path=='/api/review/publish' and post: value=review.publish_report(token,d['report_id'])
@@ -183,7 +189,7 @@ def main():
             if sep and name.strip() in ['GROUPMATE_XIPU_ROLE_KEY','GROUPMATE_XIPU_WORKFLOW_KEY']:
                 os.environ.setdefault(name.strip(),value.strip().strip(chr(34)).strip(chr(39)))
     key=os.environ.get('GROUPMATE_XIPU_ROLE_KEY')
-    server=make_server(app,secret,args.host,args.port,role_client=XipuWorkflowClient(key) if key else None,workflow_client=XipuWorkflowClient(os.environ['GROUPMATE_XIPU_WORKFLOW_KEY']) if os.environ.get('GROUPMATE_XIPU_WORKFLOW_KEY') else None)
+    server=make_server(app,secret,args.host,args.port,role_client=XipuWorkflowClient(key) if key else None,workflow_client=XipuWorkflowClient(os.environ['GROUPMATE_XIPU_WORKFLOW_KEY']) if os.environ.get('GROUPMATE_XIPU_WORKFLOW_KEY') else None,teacher_password=os.environ.get('GROUPMATE_TEACHER_PASSWORD'))
     print('GroupMate local classroom: http://'+args.host+':'+str(args.port),flush=True)
     try: server.serve_forever()
     except KeyboardInterrupt: pass

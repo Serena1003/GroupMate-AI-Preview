@@ -30,17 +30,17 @@ def prepare(context):
     evidence=owned_evidence(safe)
     constraints=[]; dimensions=[]
     for dim in DIMENSIONS:
-        status=None; code='MODEL_JUDGMENT'; explanation='需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。'
+        status=None; code='MODEL_JUDGMENT'; explanation='Judge against the rubric anchors and this participant\'s verified evidence; this template is not a model assessment.'
         if dim not in safe.get('selected_dimensions',[]):
-            status='NOT_SELECTED'; code='NOT_SELECTED'; explanation='教师本次未选择此维度。'
+            status='NOT_SELECTED'; code='NOT_SELECTED'; explanation='This dimension was not selected for this activity.'
         elif not anchors_for(safe,dim):
-            status='DATA_INCOMPLETE'; code='MISSING_RUBRIC'; explanation='此维度四档量表原文缺失或不完整，不能定级。'
+            status='DATA_INCOMPLETE'; code='MISSING_RUBRIC'; explanation='The four-level rubric is missing or incomplete; no rating can be assigned.'
         elif safe.get('data_complete') is False:
-            status='DATA_INCOMPLETE'; code='INCOMPLETE_RECORD'; explanation='讨论记录不完整，不能可靠定级。'
+            status='DATA_INCOMPLETE'; code='INCOMPLETE_RECORD'; explanation='The discussion record is incomplete; a reliable rating cannot be assigned.'
         elif safe.get('opportunity',{}).get(dim)=='NONE':
-            status='INSUFFICIENT_OPPORTUNITY'; code='CONFIRMED_NO_OPPORTUNITY'; explanation='教师记录确认本次没有适当展示机会，不能视为低能力。'
+            status='INSUFFICIENT_OPPORTUNITY'; code='CONFIRMED_NO_OPPORTUNITY'; explanation='The teacher recorded no appropriate opportunity to demonstrate this dimension; this does not indicate low ability.'
         elif not evidence:
-            status='INSUFFICIENT_EVIDENCE'; code='NO_VERIFIED_EVIDENCE'; explanation='没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。'
+            status='INSUFFICIENT_EVIDENCE'; code='NO_VERIFIED_EVIDENCE'; explanation='No verified evidence is available for this participant. Silence does not indicate low ability or automatically establish a lack of opportunity.'
         constraints.append({'dimension':dim,'required_status':status,'reason_code':code})
         dimensions.append({'dimension':dim,'status':status or 'INSUFFICIENT_EVIDENCE','level':None,'evidence_ids':[],'counter_evidence_ids':[],'explanation':explanation,'limitations':[] if code in ['NOT_SELECTED','MODEL_JUDGMENT'] else [code]})
     return {'context':safe,'dimension_constraints':constraints,'template':{**{k:safe.get(k) for k in META},'dimensions':dimensions,'knowledge_observations':[],'limitations':copy.deepcopy(safe.get('limitations',[]))}}

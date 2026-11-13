@@ -75,17 +75,18 @@ class ReviewWorkspace:
             if not baselines: raise DomainError('INDEPENDENT_ASSESSMENT_REQUIRED')
             learning=room['learning'][participant_id]
             if not learning['reflection']: raise DomainError('REFLECTION_REQUIRED')
-            return {'mode':'PERSONAL','participant_id':participant_id,'assessment_contract_version':2,'feedback_contract':{'dimension_details_source':'adopted_assessment.dimensions','knowledge_observations_source':'adopted_assessment.knowledge_observations','rule':'复制当前采用版本；independent_assessment仅用于原始AI基线回溯，目标和自评不能重定等级。'},'independent_assessment':baselines[-1],'adopted_assessment':adopted(app,baselines[-1]),'ai_baseline_reference':baselines[-1]['id'],'goal':{'text':learning['goal'],'version':learning.get('goal_version',0),'strategy':next((s.get('strategy','') for s in app._all('learning-state') if s['room_id']==room['id'] and s['participant_id']==participant_id),'')},'reflection':learning['reflection'],'feedback_preferences':packet['feedback'],'verified_evidence':context['verified_evidence'],'limitations':[]}
+            return {'mode':'PERSONAL','participant_id':participant_id,'assessment_contract_version':2,'feedback_contract':{'dimension_details_source':'adopted_assessment.dimensions','knowledge_observations_source':'adopted_assessment.knowledge_observations','rule':'Copy the current adopted dimensions and knowledge observations exactly. The engine omits adopted_assessment.excluded_dimensions from student-visible dimension details. Do not base strengths, improvement advice or narrative on these excluded dimensions. Personal goals and reflection cannot change ratings; the independent assessment is retained only as the AI baseline.'},'independent_assessment':baselines[-1],'adopted_assessment':adopted(app,baselines[-1]),'ai_baseline_reference':baselines[-1]['id'],'goal':{'text':learning['goal'],'version':learning.get('goal_version',0),'strategy':next((s.get('strategy','') for s in app._all('learning-state') if s['room_id']==room['id'] and s['participant_id']==participant_id),'')},'reflection':learning['reflection'],'feedback_preferences':packet['feedback'],'verified_evidence':context['verified_evidence'],'limitations':[]}
         if kind=='GROUP':
-            return {'mode':'GROUP','room_id':room['id'],'snapshot_id':room['snapshot_id'],'frozen_submission':room['frozen_submission'],'members':room['members'],'confirmations':(room['frozen_submission'] or {}).get('acks',{}),'messages':messages,'public_case':packet['case']['public'],'knowledge':packet['assessment'].get('knowledge',[]),'feedback_preferences':packet['feedback'],'verified_evidence':registry,'limitations':[]}
+            return {'mode':'GROUP','evidence_reference_contract':{'allowed_evidence_ids':[e['id'] for e in registry],'rule':'body.evidence_ids may contain ONLY IDs from verified_evidence[].id. messages[].id values identify raw messages, NOT verified evidence. Never copy raw message IDs into evidence_ids. If allowed_evidence_ids is empty, body.evidence_ids MUST be []. You may synthesize the frozen discussion narrative without asserting a verified individual assessment.'},'synthesis_basis':'CONFIRMED_SUBMISSION_AND_DISCUSSION' if room['frozen_submission'] else 'FROZEN_DISCUSSION','outcome_instruction':'Synthesize contributions from all actual students in the frozen messages. If there is no manual submission, derive the discussion outcome from messages, distinguish agreement from disagreement, and do not claim confirmed consensus or invent a group submission. Keep submission_version null when none exists.','room_id':room['id'],'snapshot_id':room['snapshot_id'],'frozen_submission':room['frozen_submission'],'members':room['members'],'confirmations':(room['frozen_submission'] or {}).get('acks',{}),'messages':messages,'public_case':packet['case']['public'],'knowledge':packet['assessment'].get('knowledge',[]),'feedback_preferences':packet['feedback'],'verified_evidence':registry,'limitations':[]}
         raise DomainError('INVALID_WORKFLOW_TASK')
 
-    def create_task(self,token,room_id,kind,participant_id=None,room_ids=None):
+    def create_task(self,token,room_id,kind,participant_id=None,room_ids=None,require_teacher_review=False):
         app=self.app
         with app.transaction():
             room=app._get(room_id); actor=app._teacher(token,room['owner'])
             value=self._input(room,kind,participant_id,room_ids)
             task={'id':identifier('review-task'),'owner':actor['actor_id'],'room_id':room_id,'kind':kind,'participant_id':participant_id,'scope_room_ids':value['scope']['room_ids'] if kind=='CLASS' else None,'input':copy.deepcopy(value),'input_hash':hashed(value),'created_at':app.clock(),'status':'AWAITING_MANUAL_WORKFLOW_RESULT','transport':'MANUAL_NATIVE_WORKFLOW'}
+            task['require_teacher_review']=bool(require_teacher_review)
             if kind in ['PERSONAL','GROUP','CLASS']:
                 task['input']['workflow_binding']={k:task[k] for k in ['kind','room_id','participant_id','input_hash']}
                 task['input']['workflow_binding']['task_id']=task['id']
@@ -135,7 +136,7 @@ class ReviewWorkspace:
             else:
                 check_report_body(task['kind'],value)
                 record=self.feedback.stage_report(token,room['id'],task['kind'],value,task['participant_id'],source_task_id=task_id); ids=[record['id']]
-            automatic=task['kind'] in ['PERSONAL','GROUP'] and app._get(room['snapshot_id'])['packet']['feedback'].get('mode')=='auto'
+            automatic=not task.get('require_teacher_review') and task['kind'] in ['PERSONAL','GROUP'] and app._get(room['snapshot_id'])['packet']['feedback'].get('mode')=='auto'
             if automatic:
                 self.feedback.publish_report(token,ids[0])
             result={'release':'AUTO_POLICY_PUBLISHED' if automatic else 'REVIEW_REQUIRED','task_id':task_id,'status':'IMPORTED_FOR_REVIEW','record_ids':ids,'provenance':'MANUAL_WORKFLOW_IMPORT_EXECUTION_NOT_AUTOMATICALLY_VERIFIED'}
@@ -160,11 +161,18 @@ class ReviewWorkspace:
                 item={k:report.get(k) for k in ['id','kind','participant_id','created_at','source_task_id']}
                 item['status']='STALE' if not current else report['status']
                 if teacher: item['body']=copy.deepcopy(report['body'])
-                elif current and report['status']=='PUBLISHED' and not result['reflection_required']: item['body']=copy.deepcopy(report['body'])
+                elif current and report['status']=='PUBLISHED' and not result['reflection_required']:
+                    item['body']=copy.deepcopy(report['body'])
+                    if report['kind']=='PERSONAL':
+                        baseline=adopted(app,app._get(app._get(report['assessment_id']).get('ai_baseline_id',report['assessment_id'])))
+                        item['body']['dimension_details']=[d for d in item['body']['dimension_details'] if d['dimension'] not in baseline.get('excluded_dimensions',[])]
                 result['reports'].append(item)
+            if teacher or (not result['reflection_required'] and app._get(room['snapshot_id'])['packet']['feedback'].get('share_group')):
+                from .outcomes import group_outcome
+                result['outcome']=group_outcome(app,room)
             if teacher:
                 result['evidence']=[e for e in app._all('evidence') if e['room_id']==room_id]
-                result['assessments']=[a for a in app._all('assessment') if a['room_id']==room_id]
+                result['assessments']=[adopted(app,a) if a['status']=='VALIDATED' else a for a in app._all('assessment') if a['room_id']==room_id]
                 for a in result['assessments']:
                     if a['status']=='VALIDATED' and a['input_hash']!=self.feedback._context(room,a['participant_id'])['input_hash']: a['status']='STALE'
                 result['tasks']=[{k:t.get(k) for k in ['id','kind','participant_id','status','created_at','result']} for t in app._all('review-task') if t['room_id']==room_id]

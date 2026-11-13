@@ -107,7 +107,7 @@ class Classroom:
         with self.transaction():
             d=self._get(draft_id); self._teacher(token,d['owner'])
             if revision!=d['revision']: raise DomainError('REVISION_CONFLICT',status=409)
-            if not isinstance(patch,dict) or any(k not in set(d['packet'])|{'data_policy'} for k in patch): raise DomainError('INVALID_DRAFT_PATCH')
+            if not isinstance(patch,dict) or any(k not in set(d['packet'])|{'data_policy','course_context'} for k in patch): raise DomainError('INVALID_DRAFT_PATCH')
             d['packet'].update(copy.deepcopy(patch)); d['revision']+=1; d['confirmations']={}
             self._put(d,'draft'); return d
 

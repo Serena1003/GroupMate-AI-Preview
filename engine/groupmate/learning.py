@@ -27,7 +27,7 @@ class Learning:
         with self.app.transaction():
             room=self.app._get(room_id);self.app._teacher(token,room['owner']);self.app._advance_clock(room)
             if room['state']!='RUNNING':raise DomainError('DISCUSSION_NOT_RUNNING')
-            event=self.app._event(room,'MESSAGE',text,author_type='TEACHER',author_id=room['owner'],display_name='教师 · 教学支持',help_kind=kind)
+            event=self.app._event(room,'MESSAGE',text,author_type='TEACHER',author_id=room['owner'],display_name='Teacher · Teaching support',help_kind=kind)
             self.app._put(room,'room');return record_help(self.app,room,event,kind)
 
 def record_help(app,room,event,kind):

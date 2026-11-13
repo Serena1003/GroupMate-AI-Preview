@@ -53,7 +53,7 @@ class ClassReports:
                 details=[];missing=0
                 for m in members:
                     baseline=active.get(m['id'])
-                    if not baseline:missing+=1;continue
+                    if not baseline or dim in baseline.get('excluded_dimensions',[]):missing+=1;continue
                     detail=next(d for d in baseline['dimensions'] if d['dimension']==dim)
                     details.append(detail)
                 observed=[d for d in details if d['status']=='OBSERVED'];not_observed=sum(d['status'] in ['INSUFFICIENT_EVIDENCE','INSUFFICIENT_OPPORTUNITY'] for d in details)
@@ -88,7 +88,7 @@ class ClassReports:
             current_group_reports.append(report)
         group_reports=current_group_reports
         fragments=[{'evidence_id':e['id'],'room_id':e['room_id'],'participant_id':e['participant_id'],'text':e['quote'],'pseudonym':next(m['name'] for r in rooms for m in r['members'] if m['id']==e['participant_id'])} for e in registry]
-        value={'scope':{'room_ids':room_ids,'group_count':len(rooms),'student_count':sum(len(r['members']) for r in rooms),'label':'当前单组观察' if len(rooms)==1 else '教师所选小组范围'},'strata':[{'stratum_id':sid,'conditions':s['conditions'],'room_ids':[r['id'] for r in s['rooms']]} for sid,s in sorted(strata.items())],'statistics':statistics,'authorized_fragments':fragments,'group_reports':sorted(group_reports,key=lambda r:r['report_id']),'source_index':sources,'limitations':['统计仅基于本次冻结记录及当前通过结构/引用校验的独立评价，尚未完成教学效度验证。','等级为序位，只展示档位分布，不计算平均或排名。','帮助暴露当前未完整记录，不据此比较教学效果；不同快照与实际时长分别分层。','知识统计按标签核对每名成员覆盖；缺失含部分覆盖，未观察仅指全员有该标签明确NOT_OBSERVED。支持数为至少一人有支持证据的小组数，可与缺失覆盖重叠。','未观察或缺失不等于低表现；单组不能外推全班。','假名原话仅供教师内部回查，不属于彻底匿名公开材料。']}
+        value={'scope':{'room_ids':room_ids,'group_count':len(rooms),'student_count':sum(len(r['members']) for r in rooms),'label':'Current single-group observation' if len(rooms)==1 else 'Teacher-selected group scope'},'strata':[{'stratum_id':sid,'conditions':s['conditions'],'room_ids':[r['id'] for r in s['rooms']]} for sid,s in sorted(strata.items())],'statistics':statistics,'authorized_fragments':fragments,'group_reports':sorted(group_reports,key=lambda r:r['report_id']),'source_index':sources,'limitations':['Statistics use frozen discussion records and current assessments validated for structure and source references. Teaching validity has not been established.','Ratings are ordinal. Only level distributions are shown; no averages or rankings are calculated.','Support availability does not establish attention or teaching effects. Activity snapshots and actual durations are kept in separate strata.','Knowledge coverage is checked for each member and tag. Missing coverage includes partial coverage. Not observed requires an explicit NOT_OBSERVED record for every member. A supported group has at least one member with supporting evidence and may also have incomplete coverage.','Missing or unobserved evidence does not indicate low performance. A single group cannot represent the whole class.','Pseudonymous quotes are for internal teacher review, not fully anonymous public material.']}
         value['feedback_preferences_by_room']=[{'room_id':r['id'],'preferences':app._get(r['snapshot_id'])['packet']['feedback']} for r in rooms]
         value['input_hash']=hashed(value); return value
 

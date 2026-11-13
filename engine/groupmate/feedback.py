@@ -155,6 +155,7 @@ class FeedbackService:
                         permitted=set()
                         if baseline:
                             for d in baseline['dimensions']:
+                                if d['dimension'] in baseline.get('excluded_dimensions',[]):continue
                                 if field=='strength' and d['status']=='OBSERVED':permitted.update(d['evidence_ids'])
                                 if field=='priority_improvement':
                                     permitted.update(d['counter_evidence_ids'])
