@@ -179,6 +179,20 @@ class ReviewWorkspace:
                 for record in app._all('class-report'):
                     if record['owner']==room['owner'] and room_id in record['room_ids']:
                         result['reports'].append({'id':record['id'],'kind':'CLASS','participant_id':None,'created_at':record['created_at'],'source_task_id':record.get('source_task_id'),'status':record['status'] if self.classes.current(record) else 'STALE','body':record['body'],'statistics':record['context']['statistics'],'authorized_fragments':record['context']['authorized_fragments']})
+            if not teacher:
+                # Expose only evidence referenced by feedback already visible to this student.
+                visible_ids=set()
+                def collect_ids(value):
+                    if isinstance(value,dict):
+                        for key,item in value.items():
+                            if key=='evidence_ids' and isinstance(item,list):visible_ids.update(item)
+                            else:collect_ids(item)
+                    elif isinstance(value,list):
+                        for item in value:collect_ids(item)
+                for report in result['reports']:
+                    if 'body' in report:collect_ids(report['body'])
+                result['evidence']=[{k:e[k] for k in ['id','quote','message_id','participant_id'] if k in e}
+                    for e in app._all('evidence') if e['room_id']==room_id and e['id'] in visible_ids]
             return result
 
     def revise_report(self,token,report_id,body):
