@@ -1,0 +1,28 @@
+[Unit]
+Description=GroupMate classroom engine
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=groupmate
+Group=groupmate
+WorkingDirectory=/var/lib/groupmate
+EnvironmentFile=/etc/groupmate/groupmate.env
+Environment=PYTHONPATH=/opt/groupmate/app
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -m groupmate.server --host 127.0.0.1 --port 8765
+Restart=on-failure
+RestartSec=3
+UMask=0077
+StateDirectory=groupmate
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/groupmate
+
+[Install]
+WantedBy=multi-user.target
