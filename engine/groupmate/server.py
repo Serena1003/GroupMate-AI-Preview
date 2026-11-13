@@ -44,7 +44,7 @@ def make_server(app,owner_secret,host='127.0.0.1',port=8765,role_client=None,wor
                 parsed=urlparse(self.path); path=parsed.path
                 if not path.startswith('/api/'):
                     if post: raise DomainError('METHOD_NOT_ALLOWED',status=405)
-                    if path not in ['/','/app.js','/outcomes.js','/simple-classroom.css','/english.js','/studio.js','/style.css','/manual.html','/teacher','/dashboard.css','/dashboard.js','/engine-adapter.js','/classroom-theme.css','/demo-guide','/demo-flow.png','/demo-guide.css','/plain-theme.css','/feedback-batch.js','/ibss-logo.png']: raise DomainError('NOT_FOUND',status=404)
+                    if path not in ['/','/app.js','/outcomes.js','/simple-classroom.css','/english.js','/studio.js','/style.css','/manual.html','/teacher','/dashboard.css','/dashboard.js','/engine-adapter.js','/classroom-theme.css','/demo-guide','/demo-flow.png','/demo-guide.css','/plain-theme.css','/feedback-batch.js','/ibss-logo.png','/redesign.css','/live-ui.css','/live-ui.js','/brand-0.png','/brand-1.png','/brand-2.png']: raise DomainError('NOT_FOUND',status=404)
                     f=STATIC/('demo-guide.html' if path=='/demo-guide' else 'index.html' if path=='/' else 'dashboard.html' if path=='/teacher' else path[1:])
                     content=f.read_bytes()
                     self.send_response(200); self.send_header('Content-Type',{'html':'text/html; charset=utf-8','js':'text/javascript; charset=utf-8','css':'text/css; charset=utf-8','png':'image/png'}[f.suffix[1:]])

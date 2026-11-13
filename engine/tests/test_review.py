@@ -85,6 +85,23 @@ class ReviewTests(unittest.TestCase):
         with self.assertRaises(DomainError):w.import_result(self.teacher,task['id'],{'ok':False,'errors':['STATUS_C2'],'assessment':None})
         with self.assertRaises(DomainError):w.import_result(a['token'],task['id'],{})
 
+    def test_student_evidence_requires_published_report_and_reflection(self):
+        w,r,a,b,m=self.workspace()
+        task=w.create_task(self.teacher,r['id'],'EVIDENCE')
+        w.import_result(self.teacher,task['id'],{'evidence_candidates':[{'participant_id':a['participant_id'],'message_id':m['id'],'quote':'批准条件'}]})
+        evidence=self.app._all('evidence')[0]
+        task=w.create_task(self.teacher,r['id'],'GROUP')
+        body={**self.group_body('Review the approval conditions.'),'evidence_ids':[evidence['id']]}
+        result=w.import_result(self.teacher,task['id'],self.bound(task,body))
+        self.assertEqual(w.dashboard(a['token'],r['id'])['evidence'],[])
+        w.publish_report(self.teacher,result['record_ids'][0])
+        self.assertEqual(w.dashboard(a['token'],r['id'])['evidence'],[])
+        self.app.reflect(a['token'],r['id'],'I checked the approval conditions.')
+        visible=w.dashboard(a['token'],r['id'])['evidence']
+        self.assertEqual([e['id'] for e in visible],[evidence['id']])
+        self.assertEqual(visible[0]['quote'],'批准条件')
+        self.assertEqual(w.dashboard(b['token'],r['id'])['evidence'],[])
+
     def test_teacher_revision_keeps_original_and_needs_new_review(self):
         w,r,a,b,m=self.workspace(); task=w.create_task(self.teacher,r['id'],'GROUP')
         body=self.group_body('original')
