@@ -1,5 +1,14 @@
 __pycache__/
 *.pyc
-data/
+.DS_Store
 .env
+.env.*
+!.env.example
+data/
+uploads/
 evidence/private/
+*.sqlite
+*.sqlite-*
+*.db
+*.pem
+*.key
