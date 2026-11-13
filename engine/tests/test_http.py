@@ -39,6 +39,18 @@ class HttpTests(unittest.TestCase):
         _,r=self.req('/api/rooms',{'snapshot_id':s['id'],'name':'A组'},t)
         return t,r
 
+    def test_teacher_password_override_preserves_existing_classroom(self):
+        from groupmate.server import make_server
+        token,room=self.setup_room()
+        self.server.shutdown();self.server.server_close();self.thread.join()
+        self.server=make_server(self.app,'test-owner',port=0,teacher_password='simple-classroom-password')
+        self.thread=threading.Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
+        self.base='http://127.0.0.1:'+str(self.server.server_port)
+        code,auth=self.req('/api/login',{'secret':'simple-classroom-password'})
+        self.assertEqual(code,200);self.assertEqual(auth['token'],token)
+        self.assertEqual(self.req('/api/rooms',token=auth['token'])[1][0]['id'],room['id'])
+        self.assertEqual(self.req('/api/login',{'secret':'test-owner'})[0],401)
+
     def test_real_concurrent_members_have_unique_order_and_ownership(self):
         t,r=self.setup_room()
         students=[self.req('/api/join',{'code':r['join_code'],'name':'同名'})[1] for _ in range(4)]

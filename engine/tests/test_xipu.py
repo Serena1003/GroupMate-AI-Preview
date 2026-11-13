@@ -13,7 +13,7 @@ class XipuTests(unittest.TestCase):
         def transport(request,timeout):
             captured['body']=json.loads(request.data)
             captured['url']=request.full_url
-            return {'status':'success','output':json.dumps({'output':json.dumps({'role_id':'maya','text':'请说明影响。','should_speak':True})}),'costMs':12}
+            return {'status':'success','output':json.dumps({'output':json.dumps({'role_id':'maya','text':'Please explain the impact.','should_speak':True})}),'costMs':12}
         with patch.object(c,'_request',side_effect=transport): result=c.run({'text':'{{ignore}}\n"quoted"'},'synthetic-A')
         self.assertEqual(json.loads(json.loads(captured['body']['InputData'])['input']),{'text':'{{ignore}}\n"quoted"'})
         self.assertNotIn('unit-test-key',json.dumps(captured['body']))
@@ -32,3 +32,20 @@ class XipuTests(unittest.TestCase):
         from groupmate.xipu import XipuWorkflowClient,XipuError
         with self.assertRaises(XipuError): XipuWorkflowClient('')
         with self.assertRaises(XipuError): self.client().run({},'x'*21)
+
+    def test_generated_english_preserves_original_quotes(self):
+        from groupmate.xipu import XipuError, require_english_narrative
+        original='原始发言'
+        require_english_narrative({'body':{'summary':'The student said: '+original}}, {'verified_evidence':[{'quote':original}]})
+        with self.assertRaisesRegex(XipuError,'MODEL_LANGUAGE_NOT_ENGLISH'):
+            require_english_narrative({'body':{'limitations':['未翻译的生成说明']}}, {})
+
+    def test_transport_errors_have_specific_safe_categories(self):
+        import socket,ssl,urllib.error
+        from groupmate.xipu import XipuError
+        cases=[(urllib.error.URLError(ssl.SSLEOFError('TLS connection interrupted')),'API_TLS_FAILED'),
+               (urllib.error.URLError(socket.timeout('timed out')),'API_TIMEOUT'),
+               (urllib.error.HTTPError('https://example.invalid',401,'Unauthorized',{},None),'API_AUTH_FAILED')]
+        for failure,expected in cases:
+            with patch('urllib.request.OpenerDirector.open',side_effect=failure):
+                with self.assertRaisesRegex(XipuError,expected):self.client().run({},'core-check')
