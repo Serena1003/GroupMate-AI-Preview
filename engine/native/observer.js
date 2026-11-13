@@ -25,17 +25,17 @@ function prepare(c){
   const safe={};for(const k of SAFE)if(k in c)safe[k]=clone(c[k]);
   const evidence=ownedEvidence(safe),constraints=[],dimensions=[];
   for(const dimension of DIMS){
-    let status=null,code='MODEL_JUDGMENT',explanation='需对照原文锚点与本人的已核证据判断；当前模板不代表模型评价。';
+    let status=null,code='MODEL_JUDGMENT',explanation='Judge against the rubric anchors and this participant\'s verified evidence; this template is not a model assessment.';
     if(!(safe.selected_dimensions||[]).includes(dimension)){
-      status='NOT_SELECTED';code='NOT_SELECTED';explanation='教师本次未选择此维度。';
+      status='NOT_SELECTED';code='NOT_SELECTED';explanation='This dimension was not selected for this activity.';
     }else if(!anchorsFor(safe,dimension)){
-      status='DATA_INCOMPLETE';code='MISSING_RUBRIC';explanation='此维度四档量表原文缺失或不完整，不能定级。';
+      status='DATA_INCOMPLETE';code='MISSING_RUBRIC';explanation='The four-level rubric is missing or incomplete; no rating can be assigned.';
     }else if(safe.data_complete===false){
-      status='DATA_INCOMPLETE';code='INCOMPLETE_RECORD';explanation='讨论记录不完整，不能可靠定级。';
+      status='DATA_INCOMPLETE';code='INCOMPLETE_RECORD';explanation='The discussion record is incomplete; a reliable rating cannot be assigned.';
     }else if((safe.opportunity||{})[dimension]==='NONE'){
-      status='INSUFFICIENT_OPPORTUNITY';code='CONFIRMED_NO_OPPORTUNITY';explanation='教师记录确认本次没有适当展示机会，不能视为低能力。';
+      status='INSUFFICIENT_OPPORTUNITY';code='CONFIRMED_NO_OPPORTUNITY';explanation='The teacher recorded no appropriate opportunity to demonstrate this dimension; this does not indicate low ability.';
     }else if(!Object.keys(evidence).length){
-      status='INSUFFICIENT_EVIDENCE';code='NO_VERIFIED_EVIDENCE';explanation='没有本人已核证据；未表达不等于低能力，也不自动等于缺少机会。';
+      status='INSUFFICIENT_EVIDENCE';code='NO_VERIFIED_EVIDENCE';explanation='No verified evidence is available for this participant. Silence does not indicate low ability or automatically establish a lack of opportunity.';
     }
     constraints.push({dimension,required_status:status,reason_code:code});
     dimensions.push({dimension,status:status||'INSUFFICIENT_EVIDENCE',level:null,evidence_ids:[],counter_evidence_ids:[],explanation,limitations:['NOT_SELECTED','MODEL_JUDGMENT'].includes(code)?[]:[code]});

@@ -15,6 +15,7 @@ llm['Configs']['LLM']['SystemPrompt']='''你是GroupMate教师班级汇总节点
 严格使用给定n/m/单位/缺失/未观察/部分覆盖，绝不改分母、混淆组与学生单位、用重复片段增加组数或算等级平均/排名/总分/C7/SRL分。missing_count含部分覆盖，partial_count是其中部分覆盖，not_observed_count仅完整覆盖下的明确未观察；空knowledge_observations不能说知识未掌握。dimension_observed中的未观察含证据/机会/量表资料不足，不能说完全没有独立评价。
 保留不同快照与实际时长分层；support_recording=UNRECORDED指帮助暴露未完整记录，不表示没有帮助或未录讨论。单组只写当前单组观察，不能称跨组/全班共性。假名片段仅教师内部回查，不自称彻底匿名。单人合成测试不能代表多人协作，但若现有唯一成员已同意，不捏造其他未确认成员。
 知识片段与独立知识判断分开，缺失不等于错误或低表现，不从知识片段推断C维度水平。片段未支持的结论改为待了解问题，呈现反例和限制；不要写输入并未记录的教师关注点。建议与真实观察相连，由教师决定采用，不声称长期改善。不复写statistics或其他权威元数据。'''
+llm['Configs']['LLM']['SystemPrompt'] += '\n\nOUTPUT LANGUAGE: Write newly authored explanations and limitations in English. Preserve source quotations, metadata, allowed tags, ratings and evidence references. Translate template prose where required, without changing any status, level or identifier.'
 end['Configs']['End']['InputVariables']=[ref('output',gate['Code'],'output')];end['Depends']=[{'NodeCode':gate['Code']}];end['Layout']={'X':1700,'Y':200}
 flow['DisplayName']='GroupMate课堂 · WF05 全班汇总 v0.3 校验版';flow['Desc']='代码生成短引用 → 六节模型候选 → 任务绑定与原始引用精确映射校验。教师审核后采用。';flow['Nodes']=[start,pre,llm,gate,end]
 (out/'WF05-validated-import.yaml').write_text(json.dumps(flow,ensure_ascii=False,indent=2));print('Class five-node workflow import built')

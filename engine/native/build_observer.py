@@ -24,6 +24,7 @@ llm['Configs']['LLM']['SystemPrompt']='''你是GroupMate独立Observer，输出�
 逐项查dimension_constraints：required_status非null时，完整复制template对应维度，不能改status、level、explanation、limitations及证据。尤其MISSING_RUBRIC优先于缺机会或证据不足；代码不会允许其他状态通过。required_status=null时才对照context.rubric中该维度四档原文及本人已核证据独立判断；只用本人的verified_evidence真实ID。OBSERVED才给1-4整数等级和evidence_ids，其他状态level=null。没有充分证据用INSUFFICIENT_EVIDENCE，明确无机会用INSUFFICIENT_OPPORTUNITY；沉默不等于1，也不自动等于缺机会。
 每项只含dimension,status,level,evidence_ids,counter_evidence_ids,explanation,limitations。解释本次行为如何对应锚点及不适用的边界；反例与混合证据如实说明，不按发言次数、外向、AI表现或组结果判断，不平均、不强求教材结局；没有预算不要求ROI，未知不扣分。知识标签只用context.knowledge允许项，没有则空。输出六维且只有六维；无证据不能凑优点或诊断长期能力。'''
 llm['Configs']['LLM']['SystemPrompt']+='\nknowledge_observations必须为对象数组，每项严格只有tag,status,evidence_ids,explanation；tag来自context.knowledge，status只可SUPPORTED/MISUSE/NOT_OBSERVED/UNCERTAIN，SUPPORTED/MISUSE引用本人真实证据。context.help_exposures仅代表公开可见支持，不证明已阅读；如实说明帮助条件。'
+llm['Configs']['LLM']['SystemPrompt'] += '\n\nOUTPUT LANGUAGE: Write newly authored explanations and limitations in English. Preserve source quotations, metadata, allowed tags, ratings and evidence references. Translate template prose where required, without changing any status, level or identifier.'
 end['Configs']['End']['InputVariables']=[ref('output',gate['Code'],'output')]
 end['Depends']=[{'NodeCode':gate['Code']}]; end['Layout']={'X':1700,'Y':200}
 flow['DisplayName']='GroupMate课堂 · WF04B 独立Observer v0.3 校验版'

@@ -19,6 +19,7 @@ PERSONAL assessment contract v2:
 GROUP:
 - Do not read or wait for private individual goals, reflection or personal reports.
 - body has exactly: submission_version, summary, reasoning, disagreement_handling, knowledge_strengths_difficulties, evidence_ids, limitations.
+- evidence_ids must be a subset of evidence_reference_contract.allowed_evidence_ids (or verified_evidence[].id for legacy input). Raw messages[].id are not verified evidence IDs. If no verified evidence is supplied, return evidence_ids=[]; narrative synthesis of the discussion is still permitted.
 - submission_version is exactly frozen_submission.version, or null if there is no submission. The four narrative fields are strings; evidence_ids is an array of existing verified discussion evidence IDs; limitations is a string array.
 - Follow the frozen ORIGINAL submission and confirmation snapshot. AI synthesis never replaces the original text. Distinguish confirmed outcomes from proposals, assumptions, unknowns and unresolved disagreements.
 - Count actual members and their acks. One participant claiming consensus is not group confirmation. If all actual members have agreed, say that these actual members confirmed. Identify missing confirmations or reservations accurately. A one-member synthetic group cannot demonstrate multi-person collaboration; do not invent absent members.
